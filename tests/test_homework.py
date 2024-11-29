@@ -20,12 +20,12 @@ def test_homework():
 
     test = pd.read_csv("files/test.csv", index_col=None)
 
-    assert test.loc[0, "key"] == "adhoc queri"
-    assert test.loc[6, "key"] == "agricultur product"
-    assert test.loc[11, "key"] == "airlin"
-    assert test.loc[12, "key"] == "airlin compani"
-    assert test.loc[16, "key"] == "analyt applic"
-    assert test.loc[25, "key"] == "analyt model"
+    assert test.loc[0, "key"] == "analyt applic"
+    assert test.loc[6, "key"] == "analyt model"
+    assert test.loc[9, "key"] == "adhoc queri"
+    assert test.loc[11, "key"] == "agricultur product"
+    assert test.loc[16, "key"] == "airlin compani"
+    assert test.loc[25, "key"] == "adhoc queri"
 
     #
     # Retorna error si la carpeta output/ no existe
@@ -35,11 +35,11 @@ def test_homework():
     #
     # Lee el contenido del archivo output.txt
     dataframe = pd.read_csv("files/output.txt")
-    count = dataframe.groupby("text").size()
+    count = dataframe.groupby("cleaned_text").size()
 
-    assert count.loc["AD-HOC QUERIES"] == 6
-    assert count.loc["AGRICULTURAL PRODUCTION"] == 5
-    assert count.loc["AIRLINE COMPANIES"] == 4
+    assert count.loc["ADHOC QUERIES"] == 6
+    assert count.loc["AGRICULTURAL PRODUCTS"] == 5
+    assert count.loc["AIRLINE COMPANY"] == 4
     assert count.loc["AIRLINES"] == 1
-    assert count.loc["ANALYTIC APPLICATIONS"] == 9
-    assert count.loc["ANALYTIC MODEL"] == 10
+    assert count.loc["ANALYTICS MODEL"] == 10
+    assert count.loc["Analytics Application"] == 9
